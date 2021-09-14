@@ -111,13 +111,12 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  const addedArray = arr;
 
   for (let i = 0; i < times; i++) {
-    callback(addedArray, num);
+    callback(arr, num);
   }
 
-  return addedArray;
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
