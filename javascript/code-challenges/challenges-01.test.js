@@ -55,10 +55,12 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 const allUpperCase = (arr) => {
   // Solution code here...
   const allUpperCase = [];
-    
-  arr.forEach(function(strings){
-    allUpperCase.push(strings.toUpperCase());
-  })
+
+  arr.forEach(strings => allUpperCase.push(strings.toUpperCase()))
+  //Written out
+  // arr.forEach(function(strings){
+  //   allUpperCase.push(strings.toUpperCase());
+  // })
   return allUpperCase;
 };
 
@@ -74,10 +76,16 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
+  return word.toUpperCase() + '!';
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
+  const callbackArray = []
+  words.forEach(function(word){
+    callbackArray.push(callback(word))
+  })
+  return callbackArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,10 +106,18 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  const addedArray = arr;
+
+  for (let i = 0; i < times; i++) {
+    callback(addedArray, num);
+  }
+
+  return addedArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,13 +189,13 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
     expect(speaker(['hello', '301', 'students'], greeting)).toStrictEqual(['HELLO!', '301!', 'STUDENTS!']);
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should add the number 8 to the array five times', () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
