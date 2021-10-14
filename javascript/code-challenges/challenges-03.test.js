@@ -89,16 +89,9 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-  let arrTwo = function(value){
-    for(let i = 0; i < arr.length; i++){
-      if(value[i] !==forbiddenValues)
-        return value[i]
-    }
-  }
+  let uniqueValueArray = arr.filter(value => !forbiddenValues.includes(value));
 
-  let nums = arr.filter(arrTwo)
-
-  return nums;
+  return uniqueValueArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
