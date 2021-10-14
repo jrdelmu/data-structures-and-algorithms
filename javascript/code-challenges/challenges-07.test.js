@@ -134,7 +134,7 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  let result = [];
+  let result = recipe.ingredients.map((str) => str.replace(/\d+ \w+ |\d+ \w+.\w+ /g, ''));
   // Solution code here...
   return result;
 };
